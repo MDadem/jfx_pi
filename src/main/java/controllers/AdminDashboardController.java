@@ -67,22 +67,10 @@ public class AdminDashboardController {
     // Helper method to load different views into the center pane
     private void loadView(String fxmlPath) {
         try {
-            // Clear previous content - Optional, FXMLLoader replaces it anyway
-            // dashboardPane.setCenter(null);
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent viewRoot = loader.load();
             dashboardPane.setCenter(viewRoot);
-
-            // If the loaded controller needs a reference back or initialization,
-            // you can get the controller instance from the loader AFTER loading:
-            // Object controller = loader.getController();
-            // if (controller instanceof UserManagementController) {
-            //     ((UserManagementController) controller).someInitializationMethod();
-            // } else if (controller instanceof AdminProfileController) {
-            //      ((AdminProfileController) controller).loadAdminDetails();
-            // }
-
 
         } catch (IOException e) {
             e.printStackTrace(); // Log the error
